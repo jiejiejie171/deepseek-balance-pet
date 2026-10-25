@@ -12,5 +12,3 @@ secrets.bin
 *.log
 .idea/
 .vscode/
-
-docs/superpowers/

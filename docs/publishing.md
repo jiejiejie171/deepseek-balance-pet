@@ -12,9 +12,10 @@
 - [ ] `dist/DeepSeekPet-0.2.0-win-x64.zip` 内含 exe、`_internal/`、README、LICENSE、
       THIRD_PARTY_NOTICES，且 `_internal/pygame/SDL2.dll` 存在。
 - [ ] 对真实 API Key 做一次精确扫描：仓库、`dist/`、zip 均无命中。
-- [ ] `git status` 干净；没有 `secrets.bin`、`config.json`、`data/` 或本机工具配置目录被跟踪。
+- [ ] `git status` 干净；没有 `secrets.bin`、`config.json`、`data/` 或 `.claude/` 被跟踪。
 - [ ] README 顶部有免责声明与原作者署名；`DISCLAIMER.md`、`THIRD_PARTY_NOTICES.md` 已链接。
-- [ ] `git log` 里的作者身份是正确的（当前为 `jiejiejie171 <jiejiejie171@users.noreply.github.com>`）。
+- [ ] `git log` 里的作者身份是正确的（本地开发提交目前使用占位身份
+      `DeepSeek Pet Dev <dev@localhost>`，发布前请改成你自己的 GitHub 用户名/邮箱）。
 
 ## 2. 仓库信息建议
 
@@ -76,11 +77,11 @@ git push -u origin main
 - [ ] 仓库首页第一屏能看到「无需 DSH」、免责声明、原作者署名。
 - [ ] Release 的 zip 可下载，解压后 exe 能启动。
 - [ ] 新用户的首次启动向导能填写 Key 并测试连接。
-- [ ] 没有把 `%APPDATA%\DeepSeekPet`、本机工具配置、日志或密钥提交到仓库。
+- [ ] 没有把 `%APPDATA%\DeepSeekPet`、`~/.claude`、日志或密钥提交到仓库。
 - [ ] 如果之后修改了 README/素材，重新构建 zip 并更新 Release，避免包内文档过期。
 
 ## 6. 不要做的事
 
 - 不要在仓库、Issue、Release 或截图中粘贴真实 API Key。
-- 不要提交 `%APPDATA%\DeepSeekPet\secrets.bin`、`config.json` 或任何本机工具的用户配置。
+- 不要提交 `%APPDATA%\DeepSeekPet\secrets.bin`、`config.json` 或 `~/.claude/settings.json`。
 - 不要在未确认的情况下推送或创建公开 Release。

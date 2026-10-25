@@ -19,9 +19,9 @@ or telemetry.
 | `%APPDATA%\DeepSeekPet\secrets.bin` | DPAPI-encrypted custom key. |
 | `%APPDATA%\DeepSeekPet\pet.log` | Rotated operational log, redacted. |
 
-The app may read a local tool's user configuration only to optionally reuse an existing
-DeepSeek key, and only when the key source is `auto` or `local`. If you do not want this,
-set the key source to `custom` or `env`, or leave that tool unconfigured.
+The app may read `~/.claude/settings.json` only to optionally reuse an existing DeepSeek
+key, and only when the key source is `auto` or `claude`. If you do not want this, set the
+key source to `custom` or `env`, or leave Claude Code unconfigured.
 
 ## Redaction
 

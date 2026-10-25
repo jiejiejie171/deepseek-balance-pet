@@ -1,6 +1,6 @@
 # DeepSeek 余额桌宠（DeepSeek Balance Pet）
 
-**无需 DSH · 独立运行** —— 不需要 DSH，也不需要其他客户端；Windows + 一个 DeepSeek API Key 即可。
+**无需 DSH · 独立运行** —— 不需要 DSH，不需要 Claude Code；Windows + 一个 DeepSeek API Key 即可。
 
 [English](README.en.md) · [配置说明](docs/configuration.md) · [隐私说明](docs/privacy.md) · [第三方声明](THIRD_PARTY_NOTICES.md)
 
@@ -23,7 +23,7 @@
 本项目是一个**完全独立的 Windows 桌面程序**，与 DSH（DeepSeek Harness）无关：
 
 - 不需要安装 DSH，不读取 `.dsh` 目录，不调用 `dsh plugin`；
-- 不需要其他客户端；复用本机已有工具里的 DeepSeek Key 只是可选便利功能；
+- 不需要 Claude Code；复用 Claude Code 里的 Key 只是可选便利功能；
 - 只需要 Windows 10/11（x64）和一个 DeepSeek API Key。
 
 ## 功能
@@ -68,7 +68,7 @@
 | 代理（可选） | 否 | 网络需要时在设置浮层 →「高级」里填写 |
 | 准确的系统时间 | 建议 | 峰谷与“今日已用”的跨天判断按北京时间计算 |
 
-> 不需要 DSH，也不需要其他客户端。DeepSeek API Key 是唯一必须准备的东西。
+> 不需要 DSH，也不需要 Claude Code。DeepSeek API Key 是唯一必须准备的东西。
 
 ## 快速开始
 
@@ -116,7 +116,7 @@ Key 来源优先级：
 
 1. 本程序设置里的**自定义 Key**（DPAPI 加密）；
 2. 环境变量 `DEEPSEEK_API_KEY`；
-3. 可选的、本机已有工具的用户配置（程序会自动检测）。
+3. 可选的 Claude Code 用户配置 `~/.claude/settings.json` 里的 `env.ANTHROPIC_AUTH_TOKEN`。
 
 自定义 Key 存在 `%APPDATA%\DeepSeekPet\secrets.bin`，配置存在 `%APPDATA%\DeepSeekPet\config.json`。
 把程序目录放进 `portable.txt` 可切换为便携模式，配置改存到程序目录下的 `data\`。
