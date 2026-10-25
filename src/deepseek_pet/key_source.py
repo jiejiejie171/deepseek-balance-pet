@@ -11,7 +11,7 @@ from .secrets_store import SecretStore
 @dataclass(frozen=True)
 class KeyInfo:
     key: str
-    source: str  # custom | env | claude
+    source: str  # custom | env | local
 
     @property
     def masked(self) -> str:
@@ -25,7 +25,7 @@ def mask_key(key: str) -> str:
     return f"{key[:3]}****{key[-4:]}"
 
 
-def read_claude_code_key(path: Path | None = None) -> str | None:
+def read_local_tool_key(path: Path | None = None) -> str | None:
     settings = Path(path) if path else Path.home() / ".claude" / "settings.json"
     try:
         data = json.loads(settings.read_text(encoding="utf-8"))
@@ -39,10 +39,12 @@ def resolve_key(
     config: Config,
     store: SecretStore,
     env: Mapping[str, str] | None = None,
-    claude_settings: Path | None = None,
+    local_settings: Path | None = None,
 ) -> KeyInfo | None:
     env = os.environ if env is None else env
     mode = config.get("key_source", "auto")
+    if mode == "claude":
+        mode = "local"
     custom = store.get_api_key()
     if mode in ("auto", "custom") and custom:
         return KeyInfo(custom, "custom")
@@ -50,8 +52,8 @@ def resolve_key(
         env_key = (env.get("DEEPSEEK_API_KEY") or "").strip()
         if env_key:
             return KeyInfo(env_key, "env")
-    if mode in ("auto", "claude"):
-        claude_key = read_claude_code_key(claude_settings)
-        if claude_key:
-            return KeyInfo(claude_key, "claude")
+    if mode in ("auto", "local"):
+        local_key = read_local_tool_key(local_settings)
+        if local_key:
+            return KeyInfo(local_key, "local")
     return None

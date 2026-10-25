@@ -96,7 +96,9 @@ QFrame#sep { background: rgba(32, 49, 112, 0.25); max-height: 1px; border: none;
 
 
 def apply_account(config: Config, store, mode: str, key_text: str) -> None:
-    mode = mode if mode in ("auto", "custom", "env", "claude") else "auto"
+    if mode == "claude":
+        mode = "local"
+    mode = mode if mode in ("auto", "custom", "env", "local") else "auto"
     key_text = (key_text or "").strip()
     if key_text:
         store.set_api_key(key_text)
@@ -135,7 +137,7 @@ class AccountDialog(QDialog):
             ("auto", "key.source.auto"),
             ("custom", "key.source.custom"),
             ("env", "key.source.env"),
-            ("claude", "key.source.claude"),
+            ("local", "key.source.local"),
         ):
             self.source_combo.addItem(tr.t(key), value)
         index = self.source_combo.findData(config.get("key_source", "auto"))

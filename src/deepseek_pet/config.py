@@ -61,10 +61,11 @@ def normalize(data: dict | None) -> dict:
     out["refresh_interval_sec"] = _clamp_int(out.get("refresh_interval_sec"), 30, 600, 60)
     out["pet_size"] = _clamp_int(out.get("pet_size"), 240, 600, 360)
     out["opacity"] = _clamp_float(out.get("opacity"), 0.6, 1.0, 1.0)
+    raw_source = out.get("key_source")
+    if raw_source == "claude":
+        raw_source = "local"
     out["key_source"] = (
-        out.get("key_source")
-        if out.get("key_source") in ("auto", "custom", "env", "claude")
-        else "auto"
+        raw_source if raw_source in ("auto", "custom", "env", "local") else "auto"
     )
     for flag in ("always_on_top", "show_bubble", "startup", "update_check", "first_run_done"):
         out[flag] = bool(out.get(flag, DEFAULTS[flag]))

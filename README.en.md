@@ -1,6 +1,6 @@
 # DeepSeek Balance Pet
 
-**No DSH required · Standalone** — no DSH, no Claude Code; Windows plus a DeepSeek API key is all you need.
+**No DSH required · Standalone** — no DSH and no additional client; Windows plus a DeepSeek API key is all you need.
 
 [中文](README.md) · [Configuration](docs/configuration.md) · [Privacy](docs/privacy.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
 
@@ -30,7 +30,7 @@
 This is a **fully standalone Windows application**:
 
 - It does not install, read, or call DSH (`.dsh`, `dsh plugin`).
-- It does not require Claude Code; reusing an existing Claude Code key is optional.
+- It does not require an additional client; reusing an existing DeepSeek key from another local tool is optional.
 - It only needs Windows 10/11 (x64) and a DeepSeek API key.
 
 ## Features
@@ -85,7 +85,7 @@ This is a **fully standalone Windows application**:
 | Proxy (optional) | No | Configure it under settings → Advanced if needed |
 | Accurate system clock | Recommended | Peak/off-peak and the daily usage reset use Beijing time |
 
-> No DSH and no Claude Code are required. A DeepSeek API key is the only essential item.
+> No DSH and no additional client are required. A DeepSeek API key is the only essential item.
 
 ## Quick start
 
@@ -135,7 +135,7 @@ Key priority:
 
 1. Custom key saved in the app (DPAPI-encrypted);
 2. `DEEPSEEK_API_KEY` environment variable;
-3. Optional Claude Code user setting `env.ANTHROPIC_AUTH_TOKEN` in `~/.claude/settings.json`.
+3. Optional user configuration from another local tool (detected automatically).
 
 The custom key is stored in `%APPDATA%\DeepSeekPet\secrets.bin`; configuration is in
 `%APPDATA%\DeepSeekPet\config.json`. Put a `portable.txt` next to the executable to use

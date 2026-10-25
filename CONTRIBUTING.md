@@ -5,10 +5,10 @@ Thanks for helping improve DeepSeek Balance Pet.
 ## Ground rules
 
 - This project is **standalone**: it must never require DSH, read `.dsh`, or call `dsh`.
-  Claude Code key reuse is optional and must keep working when Claude Code is absent.
+  Reusing a DeepSeek key from another local tool is optional and must keep working when that tool is absent.
 - Never log, display in full, or commit an API key. Use `mask_key()` for UI and `redact()`
   for logs.
-- Keep the app working on a machine with no DSH, no Claude Code, and no pre-existing config.
+- Keep the app working on a machine with no DSH, no additional client, and no pre-existing config.
 
 ## Development setup
 

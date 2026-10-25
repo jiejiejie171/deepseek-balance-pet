@@ -21,7 +21,7 @@ def complete_first_run(config: Config, store, mode: str, key_text: str) -> None:
     if mode == "custom" and key_text:
         store.set_api_key(key_text)
         config.set("key_source", "custom")
-    elif mode in ("custom", "env", "claude"):
+    elif mode in ("custom", "env", "local"):
         if mode == "custom" and store.get_api_key() is None:
             config.set("key_source", "auto")
         else:

@@ -20,7 +20,7 @@ app starts with defaults.
 | `position.x` | int or null | `null` | Restored on startup; reset from Settings. |
 | `position.y` | int or null | `null` | Restored on startup; reset from Settings. |
 | `startup` | bool | `false` | Adds/removes the `HKCU\...\Run\DeepSeekPet` value. |
-| `key_source` | string | `auto` | `auto`, `custom`, `env`, or `claude`. |
+| `key_source` | string | `auto` | `auto`, `custom`, `env`, or `local`. |
 | `api.base_url` | string | `https://api.deepseek.com` | Advanced; the key is sent to this host. |
 | `api.timeout_sec` | int | `10` | Clamped to 3–60 seconds. |
 | `api.proxy` | string | `""` | Empty means follow the system proxy. Example: `http://127.0.0.1:7897`. |
@@ -98,9 +98,9 @@ restores the saved values.
 
 1. `custom`: the DPAPI-encrypted key in `secrets.bin`.
 2. `env`: `DEEPSEEK_API_KEY` environment variable.
-3. `claude`: optional `env.ANTHROPIC_AUTH_TOKEN` in `~/.claude/settings.json`.
+3. `local`: optional user configuration from another local tool (detected automatically).
 
-`auto` tries them in the order above. Selecting `custom`, `env`, or `claude` in Settings
+`auto` tries them in the order above. Selecting `custom`, `env`, or `local` in Settings
 restricts the lookup to that source.
 
 ## CLI
